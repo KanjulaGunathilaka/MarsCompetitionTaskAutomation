@@ -15,7 +15,6 @@ public class Hooks
     public void BeforeTestSuite()
     {
         Logger.Info($"{Environment.NewLine}==========================Running Before Test Run=========================={Environment.NewLine}");
-        CommonDriver.Initialize();
     }
 
     [OneTimeTearDown]
