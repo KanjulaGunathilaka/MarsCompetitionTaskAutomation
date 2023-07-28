@@ -1,5 +1,6 @@
 using AventStack.ExtentReports.Model;
 using NUnit.Framework;
+using System.Diagnostics.Metrics;
 
 namespace MarsCompetitionTaskAutomation.Tests
 {
@@ -7,24 +8,23 @@ namespace MarsCompetitionTaskAutomation.Tests
     public class EducationAndCertTest : BaseTest
     {
         /**
-         * This test will verify the user login flow with correct user details and check the profile update flow
-         * There are multiple parameters passed to the test case
-         * Need to update test to get the test data from a json file
+         * This test user login flow with correct user details and check the profile update flow
+         * This test user navigate to Education section by clicking Education Button
+         
          */
-        [Test, Order(1), Description("This test checks if a user is able to login to website and add profile details")]
-        public void TestSignInAndProfileVerification()
+        [Test, Order(1), Description("This test checks if a user is able to Navigate Education section")]
+        public void TestSellerNavigateEducationSection()
         {
             signInPage.SignIn("sandhaherath93@gmail.com", "Sandha@93");
-            profilePage.EnterNameStep("Sandha", "Herath");
-            profilePage.AvailabilityStep("Part Time");
-            profilePage.HoursStep("Less than 30hours a week");
-            profilePage.TargetStep("Less than $500 per month");
-            profilePage.AddDescriptionStep("Experienced IT Solutions");
-            profilePage.AddLanguagesStep("English", "Basic");
-            profilePage.AddSkillsStep("Functional Testing", "Beginner");
+            profilePage.NavigateEducationSectionStep();
+            profilePage.EducationAddNewButtonStep();
             profilePage.AddEducationStep("Victoria University", "Australia", "B.Tech", "BSc IT", "2022");
-            profilePage.AddCertificationStep("ISTQB CTFL", "ISTQB", "2022");
-            profilePage.VerifyProfileSection();
+            profilePage.CancelButtonStep("Peradeniya");
+            profilePage.EditAndUpdateStep("Peradeniya");
+
+
+
+            
         }
 
         /**
