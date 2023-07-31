@@ -34,7 +34,7 @@ namespace MarsCompetitionTaskAutomation.Tests
             signInPage.SignIn("sandhaherath93@gmail.com", "Sandha@93");
             profilePage.NavigateCertificationSectionStep();
             profilePage.CertificationAddNewButtonStep();
-            profilePage.CancelButtonStep("IT");
+            profilePage.CertificateCancelButtonStep("IT");
 
         }
 
@@ -56,6 +56,43 @@ namespace MarsCompetitionTaskAutomation.Tests
             profilePage.CertificationAddNewButtonStep();
             profilePage.AddCertificationStep("ISTQB", "Adobe", "2022");
             profilePage.CertificationDeleteStep();
+        }
+        [Test, Order(6), Description("This test checks if a user trying to added new entry with incomplete Certification details section")]
+        public void TestIncompleteStep()
+        {
+            signInPage.SignIn("sandhaherath93@gmail.com", "Sandha@93");
+            profilePage.NavigateCertificationSectionStep();
+            profilePage.CertificationAddNewButtonStep();
+            profilePage.CertificationIncompleteStep();
+        }
+
+        [Test, Order(7), Description("This test checks if a user trying to added new entry with uncomplete Certification details section")]
+        public void TestIncompleteStep1()
+        {
+            signInPage.SignIn("sandhaherath93@gmail.com", "Sandha@93");
+            profilePage.NavigateCertificationSectionStep();
+            profilePage.CertificationAddNewButtonStep();
+            profilePage.CertificationIncompleteStep1("ISTQB");
+        }
+
+        [Test, Order(8), Description("This test checks if a user trying to added new entry with uncomplete Certification details section")]
+        public void TestIncompleteStep2()
+        {
+            signInPage.SignIn("sandhaherath93@gmail.com", "Sandha@93");
+            profilePage.NavigateCertificationSectionStep();
+            profilePage.CertificationAddNewButtonStep();
+            profilePage.CertificationIncompleteStep2("ISTQB", "Adobe");
+        }
+
+        [Test, Order(9), Description("This test checks if a user trying to added new entry with uncomplete Education details section")]
+        public void CertificationExistingStep()
+        {
+            signInPage.SignIn("sandhaherath93@gmail.com", "Sandha@93");
+            profilePage.NavigateCertificationSectionStep();
+            profilePage.CertificationAddNewButtonStep();
+            profilePage.AddCertificationStep("ISTQB", "Adobe", "2022");
+            profilePage.CertificationAddNewButtonStep();
+            profilePage.CertificationExistingStep("ISTQB", "Adobe", "2022");
         }
     }
 

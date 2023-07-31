@@ -45,15 +45,18 @@ namespace MarsCompetitionTaskAutomation.Pages
         private IWebElement GraduatedYearDropdownBtn => driver.FindElement(By.XPath("//select[@class='ui fluid dropdown' and @name='certificationYear']"));
         private SelectElement GraduatedYearDropDown => new SelectElement(driver.FindElement(By.XPath("//select[@class='ui fluid dropdown' and @name='certificationYear']")));
         private IWebElement AddedSuccessMSG => driver.FindElement(By.XPath("//div[contains(text(),'has been added to your certification')]"));
-        private IWebElement CertificationCancelBtn => driver.FindElement(By.XPath("//form/div[4]//div[2]/div/table"));
-        private IWebElement certificationUpdateBtn => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody/tr/td/div/span/input[1]"));
-        private IWebElement UpdatedPopUpMsg => driver.FindElement(By.XPath("//div[contains(text(),'IT has been updated to your certification')]"));
-        private IWebElement CertificationDeleteBtn => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody/tr/td[4]/span[2]/i"));
+        private IWebElement CertificationCancelBtn => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/div/div[3]/input[2]"));
+        private IWebElement CertificationEditBtn => driver.FindElement(By.XPath("//tbody/tr[1]/td[4]/span[1]/i[1]"));
+        private IWebElement certificationUpdateBtn => driver.FindElement(By.XPath("//tbody/tr[1]/td[1]/div[1]/span[1]/input[1]"));
+        private IWebElement UpdatedPopUpMsg => driver.FindElement(By.XPath("//div[contains(text(),'ICT has been updated to your certification')]')]"));
+        private IWebElement CertificationDeleteBtn => driver.FindElement(By.XPath("//tbody/tr[1]/td[4]/span[2]/i[1]"));
         private IWebElement RemovedPopUpMsg => driver.FindElement(By.XPath("//div[contains(text(),'istqb has been deleted from your certification')]"));
-
+        private IWebElement IncompletedPopUpMsg => driver.FindElement(By.XPath("//div[contains(text(),'Please enter Certification Name, Certification From and Certification Year')]"));
+        private IWebElement ExistPopUpMsg1 => driver.FindElement(By.XPath("//div[contains(text(),'This information is already exist.')]"));
+        
         private IWebElement educationTable => driver.FindElement(By.XPath("//form/div[4]//div[2]/div/table"));
         private IWebElement certificationsTable => driver.FindElement(By.XPath("//form/div[5]//div[2]/div/table"));
-
+        
 
         public void NavigateEducationSectionStep()
         {
@@ -184,26 +187,61 @@ namespace MarsCompetitionTaskAutomation.Pages
         {
             CertificateTextBox.SendKeys(certification);
             CertificationCancelBtn.Click();
-            Wait.WaitFor(1000);
             Assert.IsTrue(CertificationAddNewBtn.Displayed, "Cancel button not clicked correctly");
+            Wait.WaitFor(1000);
         }
 
         public void CertificationEditAndUpdateStep(string certification)
         {
             EditTableRowIfExists(certificationsTable);
-            Wait.WaitFor(2000);
-            SetField(UniversityTextBox, certification);
+            Wait.WaitFor(500);
+            SetField(CertificateTextBox, certification);
             certificationUpdateBtn.Click();
-
-            Assert.That(UpdatedPopUpMsg.Text.Equals("Certification as been updated"), "Certification details not updated successfully");
+            Assert.That(UpdatedPopUpMsg.Text.Equals("ICT has been updated to your certification"), "ICT has not been updated to your certification successfully");
 
         }
 
         public void CertificationDeleteStep()
         {
             CertificationDeleteBtn.Click();
-            Assert.That(RemovedPopUpMsg.Displayed, "Certification details not Deleted successfully");
+            Assert.That(RemovedPopUpMsg.Displayed, "istqb has not been deleted from your certificatio");
 
+        }
+        public void CertificationIncompleteStep()
+        {
+            CertificationAddBtn.Click();
+            Wait.WaitFor(1000);
+            Assert.That(IncompletedPopUpMsg.Text.Equals("Please enter Certification Name, Certification Fro"), "PopUp Msg not display");
+        }
+        public void CertificationIncompleteStep1(string certification)
+        {
+
+            SetField(CertificateTextBox, certification);
+            CertificationAddBtn.Click();
+            Assert.That(IncompletedPopUpMsg.Text.Equals("Please enter Certification Name, Certification Fro"), "PopUp Msg not display");
+            
+        }
+
+        public void CertificationIncompleteStep2(string certification, string from)
+        {
+
+            SetField(CertificateTextBox, certification);
+            SetField(FromTextBox, from);
+            CertificationAddBtn.Click();
+            Wait.WaitFor(2000);
+            Assert.That(IncompletedPopUpMsg.Text.Equals("Please enter Certification Name, Certification From and Certification Year"), "PopUp Msg not display");
+
+        }
+        public void CertificationExistingStep(string certification, string from, string year)
+        {
+            Wait.WaitFor(2000);
+            SetField(CertificateTextBox, certification);
+            SetField(FromTextBox, from);
+            GraduatedYearDropdownBtn.Click();
+            GraduatedYearDropDown.SelectByText(year);
+            CertificationAddBtn.Click();
+            Assert.That(ExistPopUpMsg1.Text.Contains("This information is already exist"), "Error not displayed correctly");
+            Wait.WaitFor(2000);
         }
 
 
