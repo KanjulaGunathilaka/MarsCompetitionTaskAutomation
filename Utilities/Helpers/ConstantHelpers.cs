@@ -8,12 +8,14 @@ namespace MarsCompetitionTaskAutomation.Helpers
     {
         public static string baseUrl = "http://localhost:5000";
 
-        public static string projectRelativePath = @"..\..\..\MarsCompetitionTaskNunit\";
+        public static string projectRelativePath = @"..\..\..\";
         public static string projectPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, projectRelativePath);
         public static string baseProjectPath = Path.GetFullPath(projectPath);
         public static string ScreenshotPath = baseProjectPath + @"TestReports\Screenshots\";
         public static string ReportsPath = baseProjectPath + @"TestReports\Test_files\";
         public static string ReportXMLPath = baseProjectPath + @"TestReports\Test_files\";
+        public static string CertificationTestDataPath = baseProjectPath + @"Resources\TestData\CertificationTestData.json";
+        public static string EducationTestDataPath = baseProjectPath + @"Resources\TestData\EducationTestData.json";
 
         public static string GetRelativeFilePath(string fileName)
         {
