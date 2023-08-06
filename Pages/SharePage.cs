@@ -1,4 +1,5 @@
 ﻿using MarsCompetitionTaskAutomation.Helpers;
+using MarsCompetitionTaskAutomation.Utilities.DataModel;
 using MarsCompetitionTaskAutomation.Utils;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;

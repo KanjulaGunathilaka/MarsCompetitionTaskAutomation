@@ -1,0 +1,64 @@
+[
+  {
+    "testCase": "NavigateCertificationSectionStep",
+    "email": "sandhaherath93@gmail.com",
+    "password": "Sandha@93"
+  },
+  {
+    "testCase": "TestAddCertificationSection",
+    "email": "sandhaherath93@gmail.com",
+    "password": "Sandha@93",
+    "certification": "ISTQB",
+    "from": "Adobe",
+    "year": "2022"
+  },
+  {
+    "testCase": "TestCancelCertificationSection",
+    "email": "sandhaherath93@gmail.com",
+    "password": "Sandha@93",
+    "certification": "IT"
+  },
+  {
+    "testCase": "CertificationEditAndUpdateSection",
+    "email": "sandhaherath93@gmail.com",
+    "password": "Sandha@93",
+    "certification": "ISTQB",
+    "from": "Adobe",
+    "year": "2022",
+    "newCertification": "ICT"
+  },
+  {
+    "testCase": "CertificationDeleteSection",
+    "email": "sandhaherath93@gmail.com",
+    "password": "Sandha@93",
+    "certification": "ISTQB",
+    "from": "Adobe",
+    "year": "2022"
+  },
+  {
+    "testCase": "TestIncompleteStepAllFields",
+    "email": "sandhaherath93@gmail.com",
+    "password": "Sandha@93"
+  },
+  {
+    "testCase": "TestIncompleteStepOnlyCertification",
+    "email": "sandhaherath93@gmail.com",
+    "password": "Sandha@93",
+    "certification": "ISTQB"
+  },
+  {
+    "testCase": "TestIncompleteStepNoYear",
+    "email": "sandhaherath93@gmail.com",
+    "password": "Sandha@93",
+    "certification": "ISTQB",
+    "from": "Adobe"
+  },
+  {
+    "testCase": "CertificationExistingStep",
+    "email": "sandhaherath93@gmail.com",
+    "password": "Sandha@93",
+    "certification": "ISTQB",
+    "from": "Adobe",
+    "year": "2022"
+  }
+]

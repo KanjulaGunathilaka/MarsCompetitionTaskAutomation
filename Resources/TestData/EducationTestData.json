@@ -1,0 +1,72 @@
+[
+  {
+    "testCase": "TestUserNavigateEducationSection",
+    "email": "sandhaherath93@gmail.com",
+    "password": "Sandha@93"
+  },
+  {
+    "testCase": "TestAddEducationSection",
+    "email": "sandhaherath93@gmail.com",
+    "password": "Sandha@93",
+    "university": "Victoria University",
+    "country": "Australia",
+    "title": "B.Tech",
+    "degree": "BSc IT",
+    "year": "2022"
+  },
+  {
+    "testCase": "TestCancelEducationSection",
+    "email": "sandhaherath93@gmail.com",
+    "password": "Sandha@93",
+    "university": "Massey"
+  },
+  {
+    "testCase": "TestEditAndUpdateSection",
+    "email": "sandhaherath93@gmail.com",
+    "password": "Sandha@93",
+    "university": "Victoria University",
+    "country": "Australia",
+    "title": "B.Tech",
+    "degree": "BSc IT",
+    "year": "2022",
+    "newUniversity": "Oxford"
+  },
+  {
+    "testCase": "TestDeleteSection",
+    "email": "sandhaherath93@gmail.com",
+    "password": "Sandha@93",
+    "university": "Victoria University",
+    "country": "Australia",
+    "title": "B.Tech",
+    "degree": "BSc IT",
+    "year": "2022"
+  },
+  {
+    "testCase": "TestIncompleteStepAllFields",
+    "email": "sandhaherath93@gmail.com",
+    "password": "Sandha@93"
+  },
+  {
+    "testCase": "TestIncompleteStepOnlyUniversityPresent",
+    "email": "sandhaherath93@gmail.com",
+    "password": "Sandha@93",
+    "university": "Massey"
+  },
+  {
+    "testCase": "TestIncompleteOnlyUniAndCountry",
+    "email": "sandhaherath93@gmail.com",
+    "password": "Sandha@93",
+    "university": "Massey",
+    "country": "New Zealand"
+  },
+  {
+    "testCase": "EducationExistingStep",
+    "email": "sandhaherath93@gmail.com",
+    "password": "Sandha@93",
+    "university": "Victoria University",
+    "country": "Australia",
+    "title": "B.Tech",
+    "degree": "BSc IT",
+    "year": "2022"
+  }
+]
